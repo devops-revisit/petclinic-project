@@ -9,7 +9,10 @@ pipeline
 	{
 		stage ('Checkout')
 		{
-			git branch: 'main', credentialsId: 'github', url: 'https://github.com/devops-revisit/petclinic-project'
+            steps
+            {
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/devops-revisit/petclinic-project'
+            }
 		}
 	}
 }
