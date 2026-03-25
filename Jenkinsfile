@@ -14,5 +14,12 @@ pipeline
                 git branch: 'main', credentialsId: 'github', url: 'https://github.com/devops-revisit/petclinic-project'
             }
 		}
+        stage ('Build')
+        {
+            steps
+            {
+                sh "mvn clean compile"
+            }
+        }
 	}
 }
