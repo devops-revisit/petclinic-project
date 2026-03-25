@@ -32,12 +32,14 @@ pipeline
         {
             steps
             {
-                sh
-                """
-                mvn sonar:sonar \
-                -Dsonar.projectKey=${JOB_NAME} \
-                -Dsonar.projectName=${JOB_NAME}
-                """
+                withSonarQubeEnv('SonarQube') 
+                {
+                    sh """
+                    mvn sonar:sonar \
+                    -Dsonar.projectKey=${JOB_NAME} \
+                    -Dsonar.projectName=${JOB_NAME}
+                    """
+                }
             }
         }
 	}
